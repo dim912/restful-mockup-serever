@@ -1,8 +1,12 @@
-const express = require("express");
-const os = require("os");
+import express from "express"
+import router from './controllers/router'
+import frontFilter from './middleware/frontFilter'
+
+//create instance
 const app = express();
-app.use(express.static("dist"));
-app.get("/api/getUsername", (req, res) =>
-    res.send({ username: os.userInfo().username })
-);
+
+app.use(frontFilter) //frontFilter
+app.use('/api', router) //directing to global router(dispatcher)
+
+//listen oon 8080
 app.listen(8080, () => console.log("Listening on port 8080!"));
