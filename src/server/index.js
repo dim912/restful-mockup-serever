@@ -1,6 +1,7 @@
 import express from "express"
 import router from './controllers/router'
 import frontFilter from './middleware/frontFilter'
+import startUps from './utils/startUps'
 
 //create instance
 const app = express();
