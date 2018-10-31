@@ -10,4 +10,4 @@ app.use(frontFilter) //frontFilter
 app.use('/api', router) //directing to global router(dispatcher)
 
 //listen oon 8080
-app.listen(8080, () => console.log("Listening on portt 8080    !"));
+app.listen(8080, () => console.log("Listening onn portt 8080    !"));
