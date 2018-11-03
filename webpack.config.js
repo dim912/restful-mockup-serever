@@ -5,8 +5,8 @@ module.exports = {
 
     entry: './src/client/index.js',
     output: {
-        path: path.join(__dirname, '/dist'),
-        filename: 'index_bundle.js'
+        path: path.join(__dirname, './src/server/public'),
+        filename: 'frontend_bundle.js'
     },
     module: {
         rules: [
@@ -27,7 +27,6 @@ module.exports = {
     },
     devServer: {
         port: 3000,
-        open: true,
         proxy: {
             "/api": "http://localhost:8080"
         }

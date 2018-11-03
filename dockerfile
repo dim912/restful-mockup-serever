@@ -4,19 +4,25 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY package.json /app
-COPY /src /app
+#all subsequent operations happens inside workdir
 
-
-#RUN npm install --only=production
-RUN npm install
-
-
+#COPY package.json /app
 COPY . .
 
+#deploy run+dev dependencies
+RUN npm install
+
+#webpack build for frontEnd
+RUN npm run buildF
+
+#webpack build for backend
+RUN npm run buildB
+
+RUN npm prune --production
+
+#remove dev dependencies from node_modules
+#RUN npm prune --production
+
+
 EXPOSE 8080
-EXPOSE 3000
-
-CMD ["npm" , "run", "dev"]
-
-
+CMD ["node" , "./src/server/backend.js"]
