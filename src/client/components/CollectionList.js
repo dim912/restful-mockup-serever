@@ -8,6 +8,7 @@ import '../sass/style.scss';
 const { SubMenu } = Menu;
 
 
+
 class CollectionList extends Component {
     render() {
 

@@ -12,6 +12,11 @@ class EndPointRecord extends Component {
     constructor(props) {
         super(props);
         this.state = { value: 'init value' };
+        this.onChange = this.onChange.bind(this)
+    }
+
+    onChange(e) {
+        this.setState({ 'value': e.target.value })
     }
 
     render() {
@@ -19,7 +24,7 @@ class EndPointRecord extends Component {
             <div>
                 <Row>
                     <Col span={18}>
-                        <Input placeholder={this.state.value}></Input>
+                        <Input placeholder={this.state.value} onChange={this.onChange}></Input>
                     </Col>
                     <Col span={3}>
                         <Button type="primary" onClick={(e) => { this.setState({ 'value': 'mytestUrl' }) }}>run</Button>

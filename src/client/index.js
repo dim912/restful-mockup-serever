@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Main from './components/Main'
+import { Provider } from 'react-redux' //this is actually a component which glue react redux
+import store from './store'
 
-function click(e) {
-    console.log('called');
-}
 
 const App = () => {
-    return <Main />
+
+    return <Provider store={store}>
+        <Main />
+    </Provider>
+
 }
 
 ReactDOM.render(<App className="body" />, document.getElementById('app'))
