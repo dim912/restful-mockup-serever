@@ -1,15 +1,41 @@
 import React, { Component } from 'react'
-import { Col, Row } from 'antd';
+import { Col, Row, Affix } from 'antd';
 import 'antd/lib/row/style/css';
 import 'antd/lib/col/style/css';
+import 'antd/lib/affix/style/css';
+import CollectionList from './CollectionList'
 import JSONPanel from './JSONPanel';
 import RestfulInfoPanel from './RestfulInfoPanel';
+import '../sass/style.scss'
+import { Input } from 'antd';
+import 'antd/lib/list/style/css';
+import 'antd/lib/avatar/style/css';
+import 'antd/lib/button/style/css';
+import CollectionInfo from '../components/CollectionInfo'
 
+const { TextArea } = Input;
 
 class Content extends Component {
 
     render() {
         return <div>
+
+            <Row>
+                <Col span={5} >
+                    <Affix>
+                        <CollectionList />
+                    </Affix>
+                </Col>
+
+                <Col span={10}  >
+                    <CollectionInfo />
+                </Col>
+
+                <Col span={9}  >
+                    <JSONPanel />
+                </Col>
+            </Row>
+            { /*
             <Row>
                 <Col span={1}></Col>
                 <Col span={11}>
@@ -20,7 +46,8 @@ class Content extends Component {
                 </Col>
                 <Col span={1}></Col>
             </Row>
-        </div>
+            */}
+        </div >
     }
 }
 

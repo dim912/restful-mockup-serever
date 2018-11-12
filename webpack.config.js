@@ -1,5 +1,8 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin') //creates index.html
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+
 
 module.exports = {
 
@@ -17,11 +20,28 @@ module.exports = {
                     loader: 'babel-loader'
                 }
             },
+
             {
-                test: /\.css$/,
+                test: /\.(css|scss)$/,
                 use: [
-                    'style-loader', 'css-loader'
+                    process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader, "css-loader", // translates CSS into CommonJS
+                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
                 ]
+            },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                    },
+                    {
+                        loader: '@svgr/webpack',
+                        options: {
+                            babel: false,
+                            icon: true,
+                        },
+                    },
+                ],
             }
         ]
     },
@@ -34,6 +54,12 @@ module.exports = {
     plugins: [
         new htmlWebpackPlugin({
             template: './src/client/index.html'
+        }),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "[name].css",
+            chunkFilename: "[id].css"
         })
     ]
 }

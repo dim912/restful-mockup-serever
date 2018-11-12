@@ -10,4 +10,4 @@ const App = () => {
     return <Main />
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(<App className="body" />, document.getElementById('app'))

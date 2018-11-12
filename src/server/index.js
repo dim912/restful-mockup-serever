@@ -4,6 +4,11 @@ import frontFilter from './middleware/frontFilter'
 import startUps from './utils/startUps'
 import path from 'path'
 
+/**
+ * At production webpack copy frontend build to 'server>public' folder.
+ * At dev mode -> front, back ends runs on their own ports(3000, 8080)
+ * 
+ */
 const htmlPath = path.join(__dirname, 'public');
 
 //create instance

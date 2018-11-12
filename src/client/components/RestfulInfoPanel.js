@@ -21,7 +21,7 @@ class RestfulInfoPanel extends Component {
                     console.log(e.target.value)
                     navigator.clipboard.writeText(this.state.text)
                 }} />}
-                    defaultValue="http://mysite/asdfas/1"
+                    defaultValue="http://mysite/asdfadssssssss/1"
                     onChange={(e) => { this.setState({ 'text': e.target.value }) }}
                 />
 

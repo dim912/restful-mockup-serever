@@ -7,7 +7,7 @@ router.use('/resources', ResourceController)
 
 //index url
 router.get('/', (req, res) => {
-    res.send({ "payload": "homepage" });
+    res.send({ "payload": "homepageeedd" });
 })
 
 export default router

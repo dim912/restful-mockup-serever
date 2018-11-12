@@ -75,7 +75,7 @@ class JSONPanel extends Component {
 
         return <div>
             <Row>
-                <Col style={{ "border-style": "solid", "border-color": this.state.correctJson ? "#c4ebc4" : "#B23232" }}>
+                <Col>
                     <Row>
                         <AceEditor
                             key={this.state.key}
@@ -84,7 +84,7 @@ class JSONPanel extends Component {
                             mode="json"
                             theme="github"
                             fontSize={this.state.fontSize}
-                            // height="300px"
+                            height='700px'
                             // width="1000px"
                             // showGutter={false}
                             enableBasicAutocompletion={true}

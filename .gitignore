@@ -2,4 +2,7 @@ node_modules/*
 settings.json
 Db.db
 src/server/public/*
-src/server/backend.js
+src/server/backend.js 
+target/*
+.v8flags*
+npm-debug*
