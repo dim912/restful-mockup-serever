@@ -6,3 +6,4 @@ src/server/backend.js
 target/*
 .v8flags*
 npm-debug*
+package-lock.json

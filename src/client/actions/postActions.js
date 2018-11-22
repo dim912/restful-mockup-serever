@@ -1,13 +1,11 @@
-import { FETCH_POST } from './types'
+import { FETCH_POST, NEW_POSTS } from './types'
 
 export default function fetchPOst() {
-    console.log('called thisssssssssssssssssssssssssssst')
+
     return function (dispatch) {
-        console.log('called thissssssssssssssssssssssssssss')
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 return dispatch(
                     {
                         type: FETCH_POST,
@@ -15,6 +13,33 @@ export default function fetchPOst() {
                     }
                 )
             })
-
     }
 }
+
+
+export function createPost(postData) {
+    console.log('Create Post is called 1')
+    return function (dispatch) {
+        console.log('Create Post is called 2')
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+
+        })
+            .then(res => res.json())
+            .then(post => {
+                console.log(post)
+                return dispatch(
+                    {
+                        type: NEW_POSTS,
+                        payload: post
+                    }
+                )
+            })
+    }
+}
+
+
