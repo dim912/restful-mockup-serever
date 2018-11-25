@@ -5,9 +5,8 @@ const router = Router()
 
 router.get('/:id', (req, res) => {
     console.log('resources id is called')
-    res.send({ "status": "ok" })
+    res.send({ "statusaaddd": "ok" })
 })
-
 
 router.get('/', (req, res) => {
     console.log('GET RESOURCE IS CALLED')
@@ -29,8 +28,6 @@ router.post('/', bodyParser.json(), (req, res) => {
     var result = users.find({ age: { $lte: 35 } });
 
     console.log(result);
-
-
 
     res.send({ "status": "ok" })
 })

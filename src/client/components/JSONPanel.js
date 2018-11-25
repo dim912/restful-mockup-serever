@@ -24,21 +24,15 @@ class JSONPanel extends Component {
     }
 
     increaseFontSize(e, e1) {
-        console.log('called')
-        console.log(this.state.fontSize)
         this.setState({ fontSize: this.state.fontSize + 2, key: this.state.key + 1 })
     }
 
     decreaseFontSize(e, e1) {
-        console.log('called')
-        console.log(this.state.fontSize)
         this.setState({ fontSize: this.state.fontSize - 2, key: this.state.key + 1 })
     }
 
     onchage(v, e) {
 
-        console.log(e)
-        console.log(v)
         let res = v;
 
         try {
@@ -47,16 +41,11 @@ class JSONPanel extends Component {
 
             }
             this.setState({ correctJson: true })
-            console.log('correct json')
-            console.log(this.state.correctJson)
 
         }
         catch (err) {
             this.setState({ correctJson: false })
-            console.log(this.state.correctJson)
-            console.log(err)
         }
-        console.log(this.state.key + 1)
         this.setState({ jsonCode: res })
     }
 
@@ -65,9 +54,7 @@ class JSONPanel extends Component {
             body: this.state.jsonCode
         })
             .then(resp => {
-                console.log(resp)
             })
-        console.log(this.state.jsonCode)
     }
 
 

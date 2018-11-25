@@ -35,19 +35,7 @@ class Content extends Component {
                     <JSONPanel />
                 </Col>
             </Row>
-            { /*
-            <Row>
-                <Col span={1}></Col>
-                <Col span={11}>
-                    <JSONPanel />
-                </Col>
-                <Col span={11}>
-                    <RestfulInfoPanel />
-                </Col>
-                <Col span={1}></Col>
-            </Row>
-            */}
-        </div >
+        </div>
     }
 }
 

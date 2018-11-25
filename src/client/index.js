@@ -8,6 +8,7 @@ import store from './store'
 const App = () => {
 
     return <Provider store={store}>
+        {/* This is the wrapper to enable redux as a provider*/}
         <Main />
     </Provider>
 

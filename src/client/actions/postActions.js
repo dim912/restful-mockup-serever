@@ -1,26 +1,25 @@
 import { FETCH_POST, NEW_POSTS } from './types'
 
-export default function fetchPOst() {
+export default function fetchPOst(dispatch) {
 
-    return function (dispatch) {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(res => res.json())
-            .then(data => {
-                return dispatch(
-                    {
-                        type: FETCH_POST,
-                        payload: data
-                    }
-                )
-            })
-    }
+
+    return () => fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(res => res.json())
+        .then(data => {
+            return dispatch( //when we are done with the action -> we call the dispatcher function 
+                //which is pasesd with type, and payload data
+                //then dispatcher calls all the reducers with the type and payload
+                //corresponding reducers updates their status accordingly
+                {
+                    type: FETCH_POST,
+                    payload: data
+                }
+            )
+        })
 }
 
-
 export function createPost(postData) {
-    console.log('Create Post is called 1')
     return function (dispatch) {
-        console.log('Create Post is called 2')
         fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             headers: {
@@ -31,7 +30,6 @@ export function createPost(postData) {
         })
             .then(res => res.json())
             .then(post => {
-                console.log(post)
                 return dispatch(
                     {
                         type: NEW_POSTS,
@@ -41,5 +39,3 @@ export function createPost(postData) {
             })
     }
 }
-
-

@@ -9,7 +9,7 @@ export default frontFilter
 
 //logging input
 const log = (req) => {
-    console.log(req.method + req.url)
+    console.log(req.method + req.url + "r")
 }
 
 

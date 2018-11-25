@@ -18,7 +18,6 @@ class RestfulInfoPanel extends Component {
 
                 GET
                 <Input addonBefore="POST" addonAfter={<Button type="default" icon="copy" size="small" onClick={(e) => {
-                    console.log(e.target.value)
                     navigator.clipboard.writeText(this.state.text)
                 }} />}
                     defaultValue="http://mysite/asdfadssssssss/1"
